@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "FIDLEG Compliance Action",
   "description": "Defines a concrete, actionable step a financial service provider must take to comply with FIDLEG (and related AML/GwG) regulations.",
   "type": "object",

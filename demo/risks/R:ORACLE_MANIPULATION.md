@@ -5,7 +5,7 @@ id: R:ORACLE_MANIPULATION
 title: Oracle Manipulation
 category: DEPENDENCY
 type: HYBRID
-scope: INFRASTRUCTURE
+scope: NETWORK
 owner: OPERATOR
 objectives:
   - type: VALUE
@@ -24,7 +24,7 @@ measures:
   - M:TIME_WEIGHTED_AVERAGE
 severity: HIGH
 probability: MEDIUM
-impact: HIGH
+impact: SEVERE
 ```
 
 ## Description

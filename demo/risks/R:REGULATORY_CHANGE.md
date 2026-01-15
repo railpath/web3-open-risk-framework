@@ -5,7 +5,7 @@ id: R:REGULATORY_CHANGE
 title: Regulatory Change
 category: COMPLIANCE
 type: QUALITATIVE
-scope: LEGAL
+scope: GOVERNANCE
 owner: COMPLIANCE_OFFICER
 objectives:
   - type: VALUE
@@ -26,7 +26,7 @@ measures:
   - M:GEOGRAPHIC_DIVERSIFICATION
 severity: HIGH
 probability: HIGH
-impact: CRITICAL
+impact: CATASTROPHIC
 ```
 
 ## Description

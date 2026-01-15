@@ -1,4 +1,4 @@
-import Ajv2020 from 'ajv/dist/2020.js';
+import Ajv from 'ajv';
 import { ValidationResult } from '../types/types.js';
 import addFormats from 'ajv-formats';
 import fs from 'fs';
@@ -8,7 +8,7 @@ import path from 'path';
  * Create AJV validator instance with common configuration
  */
 export function createAjvValidator(): any {
-    const ajv = new Ajv2020({ allErrors: true, strict: false });
+    const ajv = new Ajv({ allErrors: true, strict: false });
     addFormats(ajv);
     return ajv;
 }

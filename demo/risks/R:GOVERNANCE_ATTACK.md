@@ -24,7 +24,7 @@ measures:
   - M:MULTI_SIG_CONTROL
 severity: HIGH
 probability: MEDIUM
-impact: CRITICAL
+impact: CATASTROPHIC
 ```
 
 ## Description

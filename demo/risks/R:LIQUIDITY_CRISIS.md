@@ -5,7 +5,7 @@ id: R:LIQUIDITY_CRISIS
 title: Liquidity Crisis
 category: FINANCIAL
 type: QUANTITATIVE
-scope: LENDING
+scope: TRADE
 owner: INVESTOR
 objectives:
   - type: VALUE
@@ -25,7 +25,7 @@ measures:
   - M:DIVERSIFIED_LIQUIDITY_SOURCES
 severity: CRITICAL
 probability: MEDIUM
-impact: CRITICAL
+impact: CATASTROPHIC
 ```
 
 ## Description
