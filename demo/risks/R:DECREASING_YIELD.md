@@ -10,7 +10,11 @@ owner: INVESTOR
 severity: MEDIUM
 probability: HIGH
 impact: MEDIUM
-objectives: "Maintain sustainable lending yields and prevent value erosion"
+objectives:
+  - type: YIELD
+    direction: DECREASE
+    goal: MITIGATE
+
 measures:
   - M:REALLOCATE_CAPITAL
 ```

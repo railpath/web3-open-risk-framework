@@ -151,5 +151,5 @@ Immutable record of:
 - **Future-Proof**: Adapts to evolving regulatory landscapes
 
 <!-- HIDDEN -->
-For additional details, see the [Detailed Component Guides](./docs/) and [Implementation Examples](../../catalogue/).
+For additional details, see the [Detailed Component Guides](./docs/) and [Implementation Examples](../../demo/).
 <!-- /HIDDEN -->

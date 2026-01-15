@@ -16,9 +16,9 @@ import {
 import fs from 'fs';
 import path from 'path';
 
-// Find the module root directory (where catalogue/ and schema/ folders are located)
+// Find the module root directory (where demo/ and schema/ folders are located)
 const scriptDir = path.dirname(new URL(import.meta.url).pathname);
-const baseDir = path.resolve(scriptDir, '..', '..', 'catalogue');
+const baseDir = path.resolve(scriptDir, '..', '..', 'demo');
 const schemaDir = path.resolve(scriptDir, '..', '..', 'schema');
 
 // File type configurations

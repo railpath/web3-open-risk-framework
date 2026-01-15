@@ -73,7 +73,7 @@ npm run validate-all
 
 ### Error Reporting
 ```
- catalogue/risks/R:EXAMPLE.md:
+ demo/risks/R:EXAMPLE.md:
   - Indicator I:NONEXISTENT does not exist
   - Measure M:MISSING does not exist
 
@@ -148,7 +148,7 @@ module/
 │   ├── indicator.schema.json
 │   ├── assessment.schema.json
 │   └── measure.schema.json
-└── catalogue/                     # Content files
+└── demo/                          # Content files
     ├── risks/
     ├── indicators/
     ├── assessments/

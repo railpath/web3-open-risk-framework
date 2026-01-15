@@ -17,7 +17,7 @@ A prescriptive DeFi compliance engine for Swiss financial institutions. Enables 
 1. **Read the Guide**: Start with the [detailed implementation guide](./fidleg.md)
 2. **Review Schemas**: Examine [fidleg-action.schema.json](./schema/fidleg-action.schema.json)
 3. **Study Components**: Check the [component guides](./docs/) for specific implementations
-4. **See Examples**: Examine implementation examples in the [main catalogue](../../catalogue/)
+4. **See Examples**: Examine implementation examples in the [main demo](../../demo/)
 
 ##  Schema Extension Example
 
@@ -42,10 +42,10 @@ The FIDLEG extension adds `regulatoryExtensions.fidleg` objects to core schemas:
 
 ##  Implementation Examples
 
-- **Risk**: [R:MEV_EXPLOITATION.FIDLEG.md](../../catalogue/risks/R:MEV_EXPLOITATION.FIDLEG.md)
-- **Indicator**: [I:MEV_DETECTION.FIDLEG.md](../../catalogue/indicators/I:MEV_DETECTION.FIDLEG.md)
-- **Measure**: [M:MEV_PROTECTION.FIDLEG.md](../../catalogue/measures/M:MEV_PROTECTION.FIDLEG.md)
-- **Assessment**: [A:MEV_EXPLOITATION.FIDLEG.md](../../catalogue/assessments/A:MEV_EXPLOITATION.FIDLEG.md)
+- **Risk**: [R:MEV_EXPLOITATION.FIDLEG.md](../../demo/risks/R:MEV_EXPLOITATION.FIDLEG.md)
+- **Indicator**: [I:MEV_DETECTION.FIDLEG.md](../../demo/indicators/I:MEV_DETECTION.FIDLEG.md)
+- **Measure**: [M:MEV_PROTECTION.FIDLEG.md](../../demo/measures/M:MEV_PROTECTION.FIDLEG.md)
+- **Assessment**: [A:MEV_EXPLOITATION.FIDLEG.md](../../demo/assessments/A:MEV_EXPLOITATION.FIDLEG.md)
 
 ##  Core FIDLEG Articles
 

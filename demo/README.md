@@ -15,7 +15,7 @@ The examples in this directory are designed to:
 ##  Directory Structure
 
 ```
-catalogue/
+demo/
 ├── risks/           # Example risk definitions
 ├── indicators/      # Example indicator implementations  
 ├── measures/        # Example mitigation measures
@@ -23,6 +23,8 @@ catalogue/
 ```
 
 ##  How to Use These Examples
+
+> **Just getting started?** Check out the [Getting Started Guide](../docs/getting-started.md) for a step-by-step tutorial on creating your first risk.
 
 ### 1. **Study the Structure**
 - Review the YAML metadata format

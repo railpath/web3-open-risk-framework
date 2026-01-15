@@ -13,17 +13,53 @@
       "minLength": 1
     },
     "category": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "FINANCIAL",
+        "DEPENDENCY",
+        "TECHNICAL",
+        "APPLICATION",
+        "ORGANIZATIONAL",
+        "CONTRACT",
+        "HUMAN_ERROR",
+        "COMPLIANCE"
+      ],
+      "description": "Risk category - see framework/docs/categories.md for definitions"
     },
     "type": {
       "type": "string",
       "enum": ["QUALITATIVE", "QUANTITATIVE", "HYBRID"]
     },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "APPLICATION",
+        "ASSET",
+        "NETWORK",
+        "TRADE",
+        "CUSTODY",
+        "GOVERNANCE"
+      ],
+      "description": "Primary scope of action for this risk (see framework/docs/scopes.md)"
+    },
     "scopes": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "string",
+        "enum": [
+          "APPLICATION",
+          "ASSET",
+          "NETWORK",
+          "TRADE",
+          "CUSTODY",
+          "GOVERNANCE"
+        ]
+      },
+      "description": "Multiple scopes if risk applies to several action contexts"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Primary risk owner"
     },
     "owners": {
       "type": "array",
@@ -32,13 +68,36 @@
       }
     },
     "severity": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "CRITICAL",
+        "HIGH",
+        "MEDIUM",
+        "LOW"
+      ],
+      "description": "Overall risk severity"
     },
     "probability": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "VERY_HIGH",
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "VERY_LOW"
+      ],
+      "description": "Likelihood of risk occurrence"
     },
     "impact": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "CATASTROPHIC",
+        "SEVERE",
+        "MODERATE",
+        "MINOR",
+        "NEGLIGIBLE"
+      ],
+      "description": "Potential impact if risk materializes"
     },
     "objectives": {
       "type": "array",

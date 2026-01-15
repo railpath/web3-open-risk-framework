@@ -81,9 +81,11 @@ This framework includes:
 This repository is organized by function. The core framework documentation is located in the [`docs/`](./docs/) directory, with each file defining a reusable part of the framework:
 
 ###  Quick Start
-- **New to the framework?** Start with [Philosophy](./docs/philosophy.md) and [Terminology](./docs/terminology.md)
+- **New to the framework?** Start with [Getting Started Guide](./docs/getting-started.md) (15 min tutorial) 🚀
+- **Core concepts?** Read [Philosophy](./docs/philosophy.md) and [Terminology](./docs/terminology.md)
 - **Looking for templates?** See [Risk](./docs/risk.md), [Indicator](./docs/indicator.md), and [Measure](./docs/measure.md)
 - **Need assessment guidance?** Check [Assessment](./docs/assessment.md)
+- **Live examples?** Explore [Demo Catalogue](./demo/) with 7 risks, 11 indicators, and 7 measures
 - **Swiss banks evaluating DeFi protocols?** Use FIDLEG-specific guides: [Risk Guide](./extensions/fidleg/docs/risk.fidleg.md), [Indicator Guide](./extensions/fidleg/docs/indicator.fidleg.md), [Assessment Guide](./extensions/fidleg/docs/assessment.fidleg.md)
 - **Regulatory extensions?** Start with [FIDLEG Extension](./extensions/fidleg/) for Swiss FIDLEG compliance
 
