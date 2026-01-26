@@ -122,3 +122,11 @@ For questions about the framework:
 
 - **GitHub Issues:** Use the Issues page for technical discussions
 - **Email:** kontakt@benjamin-damm.ch
+
+<a href="https://peerlist.io/bndamm/project/web3-open-risk-framework--bridging-defi-risk" target="_blank" rel="noreferrer">
+  <img
+    src="https://peerlist.io/api/v1/projects/embed/PRJHBARGQAPDBDBGOHOME99B8MJ9MP?showUpvote=false&theme=light"
+    alt="Web3 Open Risk Framework | Bridging DeFi Risk"
+    style="width: auto; height: 72px; margin-bottom: 16px;"
+  />
+</a>
