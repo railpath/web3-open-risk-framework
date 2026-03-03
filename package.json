@@ -1,0 +1,29 @@
+{
+  "name": "@risk-catalogue/parser",
+  "version": "1.0.0",
+  "description": "TypeScript parser for the Risk Catalogue markdown files",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "risk",
+    "catalogue",
+    "parser",
+    "typescript",
+    "markdown",
+    "yaml"
+  ],
+  "author": "Risk Catalogue Team",
+  "license": "MIT",
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
