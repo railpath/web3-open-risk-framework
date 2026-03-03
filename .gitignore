@@ -1,5 +1,6 @@
 .DS_Store
 *.pdf
+node_modules/
 scripts/node_modules/
 book/node_modules/
 *.sh
