@@ -5,7 +5,8 @@ description: "Implementation of MEV protection systems for DeFi protocol evaluat
 type: "Measure"
 version: "1.0"
 lastUpdate: "2024-01-15"
-impactPotential: "HIGH"
+impactPotential: HIGH
+difficulty: HIGH
 riskReductionScope:
   severity: true
   likelihood: true

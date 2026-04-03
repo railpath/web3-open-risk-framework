@@ -5,8 +5,10 @@ id: R:GOVERNANCE_ATTACK
 title: Governance Attack
 category: ORGANIZATIONAL
 type: QUALITATIVE
-scope: GOVERNANCE
-owner: COMMUNITY
+scopes:
+  - GOVERNANCE
+owners:
+  - COMMUNITY
 objectives:
   - type: TRUST
     direction: DECREASE

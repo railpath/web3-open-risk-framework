@@ -5,8 +5,10 @@ id: R:ORACLE_MANIPULATION
 title: Oracle Manipulation
 category: DEPENDENCY
 type: HYBRID
-scope: NETWORK
-owner: OPERATOR
+scopes:
+  - NETWORK
+owners:
+  - OPERATOR
 objectives:
   - type: VALUE
     direction: DECREASE
@@ -24,7 +26,7 @@ measures:
   - M:TIME_WEIGHTED_AVERAGE
 severity: HIGH
 probability: MEDIUM
-impact: SEVERE
+impact: HIGH
 ```
 
 ## Description

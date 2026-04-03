@@ -1,7 +1,7 @@
 {
   "name": "risk-catalogue-validator",
   "version": "1.0.0",
-  "description": "Validator für Risk/Indicator/Assessment-Markdown-Dateien mit YAML-Frontmatter gegen JSON-Schema.",
+  "description": "Validator for Risk/Indicator/Assessment/Measure markdown files with YAML blocks against JSON Schema.",
   "type": "module",
   "main": "dist/validate-markdown.js",
   "scripts": {

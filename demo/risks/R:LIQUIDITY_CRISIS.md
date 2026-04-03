@@ -5,8 +5,10 @@ id: R:LIQUIDITY_CRISIS
 title: Liquidity Crisis
 category: FINANCIAL
 type: QUANTITATIVE
-scope: TRADE
-owner: INVESTOR
+scopes:
+  - TRADE
+owners:
+  - INVESTOR
 objectives:
   - type: VALUE
     direction: DECREASE

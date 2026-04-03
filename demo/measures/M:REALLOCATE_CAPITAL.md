@@ -7,6 +7,7 @@ type: Measure
 version: "1.0"
 lastUpdate: 2025-01-27
 impactPotential: HIGH
+difficulty: MEDIUM
 riskReductionScope:
   severity: true
   likelihood: true

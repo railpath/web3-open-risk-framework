@@ -5,8 +5,10 @@ id: R:REGULATORY_CHANGE
 title: Regulatory Change
 category: COMPLIANCE
 type: QUALITATIVE
-scope: GOVERNANCE
-owner: COMPLIANCE_OFFICER
+scopes:
+  - GOVERNANCE
+owners:
+  - COMPLIANCE_OFFICER
 objectives:
   - type: VALUE
     direction: DECREASE

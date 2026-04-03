@@ -9,7 +9,15 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prepare": "husky install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate:catalogue": "node ../scripts/validate-markdown.mjs",
+    "validate:catalogue:references": "npm run validate-references --prefix ../scripts",
+    "validate:catalogue:all": "npm run validate:catalogue && npm run validate:catalogue:references",
+    "validate:demo": "npm run validate --prefix ./scripts",
+    "validate:demo:references": "npm run validate-references --prefix ./scripts",
+    "validate:demo:all": "npm run validate:demo && npm run validate:demo:references",
+    "validate:all": "npm run validate:catalogue:all && npm run validate:demo:all",
+    "audit:indicators": "node ../scripts/audit-risk-indicators.mjs"
   },
   "keywords": [
     "risk",

@@ -4,17 +4,10 @@
 id: I:LENDING_APY_TREND
 title: Lending APY Trend
 version: "1.0"
-lastUpdate: 2025-01-27
-description: null
+lastUpdate: 2025-01-27T00:00:00.000Z
 preconditions: []
 methodology: []
 limitations: []
-thresholds:
-  veryHigh: null
-  high: null
-  medium: null
-  low: null
-  veryLow: null
 extensions: []
 regulatoryExtensions: {}
 ```

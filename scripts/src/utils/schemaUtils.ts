@@ -1,14 +1,22 @@
 import Ajv from 'ajv';
+import Ajv2020 from 'ajv/dist/2020.js';
 import { ValidationResult } from '../types/types.js';
 import addFormats from 'ajv-formats';
 import fs from 'fs';
 import path from 'path';
 
 /**
- * Create AJV validator instance with common configuration
+ * Same as packages/risk-framework/scripts/validate-markdown.mjs: risk.schema.json uses
+ * Draft 2020-12 (Ajv2020); other schemas use Draft-07 (default Ajv).
+ * Do not merge into a single Ajv variant.
  */
-export function createAjvValidator(): any {
-    const ajv = new Ajv({ allErrors: true, strict: false });
+export function createAjvForSchemaJson(schema: Record<string, unknown>): any {
+    const is2020 = String(schema.$schema ?? '').includes('2020-12');
+    // validateSchema: false — otherwise compile() fails on *-fidleg.schema.json
+    // (wrapper declares Draft-07 in $schema but $refs risk.schema.json Draft 2020-12).
+    const ajv = is2020
+        ? new Ajv2020({ allErrors: true, strict: false, validateSchema: false })
+        : new Ajv({ allErrors: true, strict: false, validateSchema: false });
     addFormats(ajv);
     return ajv;
 }
@@ -76,7 +84,7 @@ export function compileSchema(
 ): any {
     const actualSchemaPath = getSchemaPath(schemaPath, filePath, scriptDir);
     const schema = loadSchema(actualSchemaPath);
-    
+
     // For FIDLEG schemas, we need to resolve the $ref paths manually
     if (actualSchemaPath.includes('fidleg')) {
         const baseSchemaPath = path.resolve(
@@ -90,7 +98,7 @@ export function compileSchema(
         const combinedSchema = createCombinedSchema(baseSchema, schema);
         return ajv.compile(combinedSchema);
     }
-    
+
     return ajv.compile(schema);
 }
 
@@ -103,7 +111,20 @@ export function validateAgainstSchema(
     filePath: string,
     scriptDir: string
 ): ValidationResult {
-    const ajv = createAjvValidator();
+    const actualSchemaPath = getSchemaPath(schemaPath, filePath, scriptDir);
+    let metaForAjv: Record<string, unknown> = loadSchema(actualSchemaPath);
+    // risk-fidleg.schema.json declares Draft-07 in $schema but references risk (2020-12)
+    if (actualSchemaPath.includes('risk-fidleg')) {
+        const baseRiskPath = path.resolve(
+            scriptDir,
+            '..',
+            '..',
+            'schema',
+            'risk.schema.json'
+        );
+        metaForAjv = loadSchema(baseRiskPath);
+    }
+    const ajv = createAjvForSchemaJson(metaForAjv);
     const validate = compileSchema(schemaPath, filePath, scriptDir, ajv);
     
     const valid = validate(data);

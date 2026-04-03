@@ -17,7 +17,9 @@
     },
     "lastUpdate": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Calendar date (YYYY-MM-DD), no time component"
     },
     "description": {
       "type": "string",

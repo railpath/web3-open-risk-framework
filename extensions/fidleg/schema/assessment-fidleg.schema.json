@@ -21,6 +21,7 @@
     "date": {
       "type": "string",
       "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
       "description": "Date of the assessment."
     },
     "assessedBy": {
@@ -51,6 +52,7 @@
     "nextReviewDate": {
       "type": "string",
       "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
       "description": "Scheduled date for the next comprehensive assessment review."
     },
     "extensions": {
@@ -201,7 +203,8 @@
     "lastUpdate": {
       "type": "string",
       "format": "date",
-      "description": "Timestamp of the last update to this assessment entry."
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Calendar date (YYYY-MM-DD) of the last update."
     }
   },
   "additionalProperties": false

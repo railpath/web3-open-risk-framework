@@ -2,6 +2,20 @@
 
 This document defines the standard structure and purpose of each section used when creating a new risk indicator in the Web3 Open Risk Framework. Indicators serve as measurable signals that can be used to monitor, evaluate, and trigger risk-related assessments.
 
+Fields marked with **(optional)** can be skipped to create a quick, initial version of the indicator entry. These can later be completed for a more detailed assessment.
+
+##  Quick Version
+
+To quickly document an indicator, you only need to complete:
+
+- id
+- title
+- version
+- lastUpdate
+- description (or the `## Description` section)
+
+The other sections can then be filled in later, based on your priorities or resources.
+
 ---
 
 ##  Header Metadata
@@ -11,8 +25,9 @@ Basic identifier and classification details.
 - **ID**: A unique identifier for the indicator. Recommended format: `I:NAME` (e.g., `I:VOLATILITY`).
 - **Type**: Always `Indicator`.
 - **Title**: Clear and concise name of the indicator.
-- **Last Update**: Date of the last revision (ISO format).
+- **Last Update**: Date of the last revision, **`YYYY-MM-DD`** only (calendar date, no time).
 - **Version**: Incremental version number, starting from `0.1`.
+- **Summary** (optional): One-line preview; long narrative belongs under `## Description` in the Markdown body.
 
 Example:
 
@@ -20,38 +35,37 @@ Example:
 id: I:VOLATILITY
 type: Indicator
 title: Volatility
-version: 0.1
+version: "1.0"
 lastUpdate: 2025-06-04
+summary: Optional one-line preview; long text under ## Description.
 
-# Default threshold levels for scoring (optional but useful for UI and alerts)
+preconditions:
+  - name: Minimum history window
+  - name: Comparable benchmark defined
+
+methodology:
+  - name: Data sourcing
+  - name: Core calculation window
+
+limitations:
+  - name: Data quality
+  - name: Interpretation
+
+computation:
+  frequency: daily
+  dataSources:
+    - type: api
+    - type: oracle
+
 thresholds:
-  - level: 5
-    label: VERY_HIGH
-    operator: ">"
-    value: 60
-  - level: 4
-    label: HIGH
-    range: [40, 60]
-  - level: 3
-    label: MEDIUM
-    range: [20, 40]
-  - level: 2
-    label: LOW
-    range: [10, 20]
-  - level: 1
-    label: VERY_LOW
-    operator: "<"
-    value: 10
-
-# Optional: standard config for different investor risk profiles
-profiles:
-  conservative:
-    alertAbove: 40
-  moderate:
-    alertAbove: 50
-  aggressive:
-    alertAbove: 60
+  veryHigh: "> 60%"
+  high: "40% – 60%"
+  medium: "20% – 40%"
+  low: "10% – 20%"
+  veryLow: "< 10%"
 ```
+
+Structured lists (`preconditions`, `methodology`, `limitations`) each require at least one entry (YAML and/or the matching `##` sections below). Long-form text uses `## Description` first; YAML `description` is fallback only.
 
 ---
 
@@ -124,6 +138,8 @@ Define how the indicator translates into a risk level using thresholds. Include 
 
  **Note**: When this indicator is assigned to a risk, it carries 100% influence by default. You can link multiple indicators to a single risk, in which case weighting must be determined manually.
 
+Which risks reference an indicator is not duplicated in the indicator file; it is derived from each risk’s `indicators` list.
+
 ---
 
 ##  Standard Configurations (optional)
@@ -138,12 +154,14 @@ These values define what each investor profile considers "acceptable" or "concer
 
  *These profiles are examples only. Investors must define their own acceptable ranges based on objectives and constraints.*
 
+Investor profiles are not part of the core YAML block in the reference implementation.
+
 ---
 
 ##  Usage Guidance
 
 - Indicators are reusable across risks, but relevance depends on context.
-- Risks may link to one or more indicators, and each can be weighted differently.
+- Risks may link to one or more indicators. Weighting between indicators is not represented in the core YAML in the reference implementation.
 - You may visualize this indicator in dashboards or alerts.
 - Thresholds can be configured globally or per-investor using `Standard Configurations`.
 - An indicator can trigger automated responses, but must always be paired with qualitative context for interpretation.

@@ -25,11 +25,10 @@ id: "R:RISK-TITLE"
 title: Example Risk Title
 category: CONTRACT
 type: HYBRID
-scopes:
-  - TRADE
-  - APPLICATION
-owners:
-  - TEAM
+scope: ASSET
+owner: INVESTOR
+severity: MEDIUM
+probability: MEDIUM
 objectives:
   - type: VALUE
     direction: DECREASE
@@ -37,19 +36,12 @@ objectives:
   - type: TRUST
     direction: DECREASE
     goal: INCREASE
+indicators:
+  - I:UTILIZATION_RATIO
+  - I:LENDING_APY_TREND
 measures:
-  - id: M:SUBSTITUTION
-  - id: M:HEDGING
-indicatorWeights:
-  - id: "I:UTILIZATION_RATIO"
-    weight: 0.6
-    affects:
-      SEVERITY: INCREASE
-      PERSISTENCE: INCREASE
-  - id: "I:LENDING_APY_TREND"
-    weight: 1.0
-    affects:
-      LIKELIHOOD: INCREASE
+  - M:SUBSTITUTION
+  - M:HEDGING
 ```
 
 ##  Description
@@ -75,11 +67,7 @@ Indicators are defined in a separate file and linked to this risk by ID. Use thi
 Indicators are defined in a separate file and linked to this risk by ID.
 Each indicator can influence different risk dimensions such as severity, likelihood, or persistence.
 
-Use the indicatorWeights field to:
-
-- assign weights to multiple indicators
-- declare which dimensions they affect
-- specify the direction of influence (INCREASE / DECREASE)
+Link indicator ids in the YAML `indicators` list (`I:…` strings).
 
 ##  Measures (optional)
 
@@ -95,11 +83,7 @@ Each linked indicator represents a possible signal or measurement for this risk 
 
 If a risk has **one indicator**, it is assumed to carry **100% relevance** for triggering this risk.
 
-If multiple indicators are used, use the indicatorWeights block to:
-
-- assign specific weights to each
-- map each to one or more affected risk dimensions (severity, likelihood, persistence)
-- define whether the indicator tends to increase or decrease the risk
+If multiple indicators are used, weighting is not represented in the core YAML in the reference implementation.
 
 You may also include qualitative remarks on:
 

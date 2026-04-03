@@ -10,7 +10,8 @@
     },
     "date": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     },
     "assessedBy": {
       "type": "string",
@@ -112,7 +113,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "date": { "type": "string", "format": "date" },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
           "protocol": { "type": "string" },
           "asset": { "type": "string" },
           "metric": { "type": "string" },
@@ -154,7 +159,8 @@
     },
     "lastUpdate": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
     }
   },
   "additionalProperties": false

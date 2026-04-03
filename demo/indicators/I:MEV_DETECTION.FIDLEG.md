@@ -4,17 +4,10 @@
 id: I:MEV_DETECTION.FIDLEG
 title: MEV Arbitrage Detection (Protocol Assessment)
 version: "1.0"
-lastUpdate: 2024-01-15
-description: null
+lastUpdate: 2024-01-15T00:00:00.000Z
 preconditions: []
 methodology: []
 limitations: []
-thresholds:
-  veryHigh: null
-  high: null
-  medium: null
-  low: null
-  veryLow: null
 extensions:
   - fidleg
 regulatoryExtensions:

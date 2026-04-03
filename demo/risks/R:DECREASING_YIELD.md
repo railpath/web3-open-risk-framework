@@ -5,16 +5,20 @@ id: R:DECREASING_YIELD
 title: Decreasing Lending Yield Over Time
 category: FINANCIAL
 type: HYBRID
-scope: TRADE
-owner: INVESTOR
+scopes:
+  - ASSET
+owners:
+  - INVESTOR
 severity: MEDIUM
 probability: HIGH
-impact: MODERATE
+impact: MEDIUM
 objectives:
   - type: YIELD
     direction: DECREASE
-    goal: MITIGATE
-
+    goal: MAINTAIN
+indicators:
+  - I:LENDING_APY_TREND
+  - I:UTILIZATION_RATIO
 measures:
   - M:REALLOCATE_CAPITAL
 ```

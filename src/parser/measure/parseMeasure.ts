@@ -35,15 +35,15 @@ export function parseMeasure(filePath: string): Measure {
       if (!metadata || typeof metadata !== 'object') {
         throw new Error('PARSE_ERROR: Invalid YAML structure in code block')
       }
-      
-      // Validate required fields
+
+      // Schema validation runs via npm scripts in this package (e.g. validate:catalogue), not at parse time — same as risks/indicators.
       const requiredFields = ['id', 'title']
       for (const field of requiredFields) {
         if (!(field in metadata)) {
           throw new Error(`PARSE_ERROR: Missing required field '${field}' in YAML metadata`)
         }
       }
-      
+
       // Remove the YAML code block from the content
       const markdown = content.replace(yamlMatch[0], '').trim()
       

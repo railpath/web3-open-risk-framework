@@ -4,17 +4,10 @@
 id: I:UTILIZATION_RATIO
 title: Utilization Ratio
 version: "1.0"
-lastUpdate: 2025-05-28
-description: null
+lastUpdate: 2025-05-28T00:00:00.000Z
 preconditions: []
 methodology: []
 limitations: []
-thresholds:
-  veryHigh: null
-  high: null
-  medium: null
-  low: null
-  veryLow: null
 extensions: []
 regulatoryExtensions: {}
 ```

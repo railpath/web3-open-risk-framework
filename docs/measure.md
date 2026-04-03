@@ -2,6 +2,20 @@
 
 This document defines the standard structure and purpose of each section used when creating a new risk mitigation measure in the Web3 Open Risk Framework. Measures represent actionable strategies to reduce the severity, likelihood, or persistence of a risk.
 
+Fields marked with **(optional)** can be skipped to create a quick, initial version of the measure entry. These can later be completed for a more detailed assessment.
+
+##  Quick Version
+
+To quickly document a measure, you only need to complete:
+
+- id
+- title
+- version
+- lastUpdate
+- description (or the narrative under `## Description`)
+
+The other sections can then be filled in later, based on your priorities or resources.
+
 ##  Header Metadata
 
 Basic identifier and classification details.
@@ -9,22 +23,30 @@ Basic identifier and classification details.
 - **ID**: A unique identifier for the measure. Recommended format: `M:NAME` (e.g., `M:SUBSTITUTION`).
 - **Type**: Always `Measure`.
 - **Title**: Clear and concise name of the measure.
-- **Last Update**: Date of the last revision (ISO format).
+- **Last Update**: Date of the last revision, **`YYYY-MM-DD`** only (calendar date, no time).
 - **Version**: Incremental version number, starting from `1.0`.
+- **`impactPotential`** (YAML): `LOW`, `MEDIUM`, or `HIGH` — coarse expected risk reduction (for catalog filtering).
+- **`difficulty`** (YAML): `LOW`, `MEDIUM`, or `HIGH` — coarse effort / skill / infrastructure required (for catalog filtering).
+- **`riskReductionScope`** (YAML): booleans `severity`, `likelihood`, `persistence` — which risk dimensions the measure can address.
+
+The YAML block is intentionally small: **identity**, **coarse impact/difficulty** (for UIs that filter the catalog), and **scope flags**. Detailed explanation stays in Markdown.
+
+Use **unquoted** enum values for `impactPotential` and `difficulty` (e.g. `HIGH`, not `"HIGH"`), consistent across all measure files.
 
 Example:
 
 ```yaml
-ID: M:SUBSTITUTION
-Type: Measure
-Title: Asset Substitution
-Last Update: 2025-06-04
-Version: 1.1
-ImpactPotential: High
-RiskReductionScope:
-  Severity: true
-  Likelihood: true
-  Persistence: false
+id: M:SUBSTITUTION
+title: Asset Substitution
+type: Measure
+version: "1.1"
+lastUpdate: 2025-06-04
+impactPotential: HIGH
+difficulty: MEDIUM
+riskReductionScope:
+  severity: true
+  likelihood: true
+  persistence: false
 ```
 
 ##  Description
@@ -70,13 +92,17 @@ Define which dimensions of risk this measure addresses:
 
 ##  Difficulty
 
-Assess the level of effort, knowledge, and infrastructure required to implement this measure.
+`difficulty` in the YAML block uses **`LOW`**, **`MEDIUM`**, or **`HIGH`** for filtering and sorting in catalog UIs.
 
-- **Easy**: Requires minimal technical or financial knowledge; mostly manual
-- **Medium**: Requires moderate understanding or tooling (e.g., dashboards, yield monitors)
-- **Hard**: Requires advanced modeling, automation, or multi-platform interaction
+Optionally expand under this heading with narrative (effort, tooling, expertise) — the heading does not need to repeat the YAML value verbatim.
+
+- **Easy** (maps to `LOW` in YAML): Requires minimal technical or financial knowledge; mostly manual
+- **Medium** (maps to `MEDIUM` in YAML): Requires moderate understanding or tooling (e.g., dashboards, yield monitors)
+- **Hard** (maps to `HIGH` in YAML): Requires advanced modeling, automation, or multi-platform interaction
 
 ##  Impact Potential
+
+`impactPotential` in the YAML block uses **`LOW`**, **`MEDIUM`**, or **`HIGH`**.
 
 How effective is this measure in reducing the targeted risk?
 
@@ -88,6 +114,10 @@ How effective is this measure in reducing the targeted risk?
 
 - Measures are mandatory in risk definitions and must be linked by ID.
 - Each measure file can be reused across risks and referenced from dashboards.
-- Difficulty and impact levels help prioritize actions in critical situations.
+- **`difficulty`** and **`impactPotential`** in YAML support catalog filtering; narrative sections add context.
 - Measures may be manually applied, semi-automated, or fully automated depending on the platform's capabilities.
 - Measures should align with investor profile preferences and portfolio strategy.
+
+##  Core schema
+
+A formal `Measure` type in `packages/core` (e.g. Zod/OpenAPI) is **not** required until a product API or parser validates these files; until then, the YAML conventions above and the demo measures are the reference.

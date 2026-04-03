@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Web3 Risk Mitigation Measure",
   "type": "object",
-  "required": ["id", "title", "type", "version", "lastUpdate", "impactPotential", "riskReductionScope"],
+  "required": ["id", "title", "type", "version", "lastUpdate"],
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^M:[A-Z_.]+$"
+      "pattern": "^M:[A-Z0-9_.]+$"
     },
     "title": {
       "type": "string",
@@ -17,17 +17,26 @@
       "const": "Measure"
     },
     "version": {
-      "type": "string"
+      "oneOf": [
+        { "type": "string", "minLength": 1 },
+        { "type": "number" }
+      ]
     },
     "lastUpdate": {
       "type": "string",
-      "format": "date"
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "Calendar date (YYYY-MM-DD), no time component"
     },
     "description": {
       "type": "string",
       "minLength": 1
     },
     "impactPotential": {
+      "type": "string",
+      "enum": ["LOW", "MEDIUM", "HIGH"]
+    },
+    "difficulty": {
       "type": "string",
       "enum": ["LOW", "MEDIUM", "HIGH"]
     },
@@ -59,7 +68,7 @@
       "type": "array",
       "items": {
         "type": "string",
-        "pattern": "^R:[A-Z_]+$"
+        "pattern": "^R:[A-Z0-9_]+$"
       }
     },
     "prerequisites": {

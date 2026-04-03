@@ -37,20 +37,27 @@ export function parseYaml(yamlContent: string): { data: any; error?: string } {
 }
 
 /**
- * Normalize date fields in parsed data for validation
+ * Calendar dates for schema validation: YYYY-MM-DD only (no date-time).
  */
 export function normalizeDateFields(data: any): any {
-  const normalized = { ...data };
-
-  // Convert Date objects back to ISO strings for validation
-  if (normalized.lastUpdate instanceof Date) {
-    normalized.lastUpdate = normalized.lastUpdate.toISOString().split('T')[0];
+  if (!data || typeof data !== 'object') return data;
+  const toDay = (v: unknown) => {
+    if (v instanceof Date) return v.toISOString().split('T')[0];
+    if (typeof v === 'string' && v.includes('T')) return v.split('T')[0];
+    return v;
+  };
+  const out = { ...data };
+  for (const key of ['lastUpdate', 'date', 'nextReviewDate']) {
+    if (key in out) out[key] = toDay(out[key]);
   }
-  if (normalized.date instanceof Date) {
-    normalized.date = normalized.date.toISOString().split('T')[0];
+  if (Array.isArray(out.timeline)) {
+    out.timeline = out.timeline.map((row: any) =>
+      row && typeof row === 'object' && row.date != null
+        ? { ...row, date: toDay(row.date) }
+        : row
+    );
   }
-
-  return normalized;
+  return out;
 }
 
 /**
