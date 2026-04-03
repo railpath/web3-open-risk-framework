@@ -3,9 +3,20 @@
 ```yaml
 id: I:LENDING_APY_TREND
 title: Lending APY Trend
-type: Indicator
 version: "1.0"
 lastUpdate: 2025-01-27
+description: null
+preconditions: []
+methodology: []
+limitations: []
+thresholds:
+  veryHigh: null
+  high: null
+  medium: null
+  low: null
+  veryLow: null
+extensions: []
+regulatoryExtensions: {}
 ```
 
 ##  Description

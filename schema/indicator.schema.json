@@ -2,19 +2,15 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Web3 Indicator Entry",
   "type": "object",
-  "required": ["id", "title", "type", "version", "lastUpdate"],
+  "required": ["id", "title", "version", "lastUpdate"],
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^I:[A-Z_.]+$"
+      "pattern": "^I:[A-Z_]+(\\.[A-Z]+)?$"
     },
     "title": {
       "type": "string",
       "minLength": 1
-    },
-    "type": {
-      "type": "string",
-      "const": "Indicator"
     },
     "version": {
       "type": "string"
@@ -25,47 +21,71 @@
     },
     "description": {
       "type": "string",
-      "minLength": 1
+      "description": "Short description of the indicator (used in YAML, not duplicates in Markdown)"
     },
     "preconditions": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      },
+      "description": "Conditions that must be met for this indicator to be calculated"
     },
     "methodology": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      },
+      "description": "Structured methodology steps"
     },
-    "limitations": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "assessment": {
+    "computation": {
       "type": "object",
+      "description": "Structured computation details for programmatic processing",
       "properties": {
-        "description": {
-          "type": "string"
-        },
-        "riskLevels": {
+        "metrics": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["level", "label", "threshold", "description"],
+            "required": ["name"],
             "properties": {
-              "level": {
-                "type": "integer",
-                "minimum": 1,
-                "maximum": 5
-              },
-              "label": {
+              "name": {
                 "type": "string"
               },
-              "threshold": {
+              "formula": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "weight": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "dataSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["oracle", "api", "onChain", "offChain", "indexer", "custom"]
+              },
+              "provider": {
+                "type": "string"
+              },
+              "endpoint": {
                 "type": "string"
               },
               "description": {
@@ -73,56 +93,65 @@
               }
             }
           }
+        },
+        "frequency": {
+          "type": "string",
+          "enum": ["realTime", "hourly", "daily", "weekly", "monthly", "onDemand"]
         }
       }
     },
-    "profiles": {
+    "thresholds": {
       "type": "object",
+      "description": "Risk thresholds for the indicator values",
       "properties": {
-        "conservative": {
-          "type": "object",
-          "properties": {
-            "veryHigh": { "type": "string" },
-            "high": { "type": "string" },
-            "medium": { "type": "string" },
-            "low": { "type": "string" },
-            "veryLow": { "type": "string" }
-          }
+        "veryHigh": {
+          "type": "string"
         },
-        "moderate": {
-          "type": "object",
-          "properties": {
-            "veryHigh": { "type": "string" },
-            "high": { "type": "string" },
-            "medium": { "type": "string" },
-            "low": { "type": "string" },
-            "veryLow": { "type": "string" }
-          }
+        "high": {
+          "type": "string"
         },
-        "aggressive": {
-          "type": "object",
-          "properties": {
-            "veryHigh": { "type": "string" },
-            "high": { "type": "string" },
-            "medium": { "type": "string" },
-            "low": { "type": "string" },
-            "veryLow": { "type": "string" }
+        "medium": {
+          "type": "string"
+        },
+        "low": {
+          "type": "string"
+        },
+        "veryLow": {
+          "type": "string"
+        }
+      }
+    },
+    "alertConditions": {
+      "type": "array",
+      "description": "Automated alert conditions",
+      "items": {
+        "type": "object",
+        "required": ["severity", "condition"],
+        "properties": {
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "warning", "info"]
+          },
+          "condition": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
           }
         }
       }
     },
-    "usageGuidance": {
+    "limitations": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
-    },
-    "relatedRisks": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "pattern": "^R:[A-Z_]+$"
-      }
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      },
+      "description": "Known limitations or caveats of this indicator"
     },
     "extensions": {
       "type": "array",
@@ -130,9 +159,11 @@
         "type": "string",
         "enum": ["fidleg", "euMiFID", "usSec", "ukFCA", "sgMAS"]
       },
-      "description": "List of active regulatory extensions for this indicator",
-      "uniqueItems": true
+      "description": "List of active regulatory extensions for this indicator"
+    },
+    "regulatoryExtensions": {
+      "type": "object",
+      "description": "Modular regulatory extensions for different jurisdictions"
     }
-  },
-  "additionalProperties": true
+  }
 }

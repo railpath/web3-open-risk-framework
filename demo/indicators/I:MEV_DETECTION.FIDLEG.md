@@ -2,26 +2,29 @@
 
 ```yaml
 id: I:MEV_DETECTION.FIDLEG
-title: "MEV Arbitrage Detection (Protocol Assessment)"
-type: Indicator
+title: MEV Arbitrage Detection (Protocol Assessment)
 version: "1.0"
-lastUpdate: "2024-01-15"
-extensions: ["fidleg"]
+lastUpdate: 2024-01-15
+description: null
+preconditions: []
+methodology: []
+limitations: []
+thresholds:
+  veryHigh: null
+  high: null
+  medium: null
+  low: null
+  veryLow: null
+extensions:
+  - fidleg
 regulatoryExtensions:
   fidleg:
-    fidlegTriggerEvent: "POTENTIAL_MARKET_ABUSE_DETECTED"
-    triggeredFidlegActions: []
-    fidlegMonitoringRationale: "Real-time monitoring required to comply with Art. 142 for market abuse prevention and Art. 24 for timely client information on significant changes."
-    suspiciousPatternsFidlegImpacts:
-      - pattern: "mev_arbitrage"
-        impactDescription: "MEV arbitrage patterns may indicate market manipulation requiring immediate Art. 142 compliance review and potential client notification under Art. 24."
-        patternTriggeredActions: []
-      - pattern: "wash_trading"
-        impactDescription: "Wash trading patterns constitute market abuse under Art. 142, requiring immediate FINMA reporting and client protection measures."
-        patternTriggeredActions: []
-      - pattern: "flash_loan_exploitation"
-        impactDescription: "Flash loan exploitation indicates protocol vulnerability requiring Art. 72 security assessment and client risk notification."
-        patternTriggeredActions: []
+    indicator_type: null
+    articles: []
+    thresholds: {}
+    monitoring_frequency: null
+    alert_threshold: null
+    action_threshold: null
 ```
 
 ## Description

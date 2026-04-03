@@ -3,26 +3,28 @@
 ```yaml
 id: I:BRIDGE_TVL.FIDLEG
 title: Bridge Total Value Locked
-type: Indicator
-version: '1.0'
-lastUpdate: 2026-01-14T00:00:00.000Z
-
-# FIDLEG Extension
-fidleg:
-  indicator_type: PROTOCOL_SECURITY
-  articles:
-    - art: 72
-      relevance: HIGH
-  
-  thresholds:
-    low_risk: "< $10M"
-    medium_risk: "$10M - $50M"
-    high_risk: "$50M - $100M"
-    critical_risk: "> $100M"
-  
-  monitoring_frequency: REAL_TIME
-  alert_threshold: "$50M"
-  action_threshold: "$100M"
+version: "1.0"
+lastUpdate: 2026-01-14
+description: null
+preconditions: []
+methodology: []
+limitations: []
+thresholds:
+  veryHigh: null
+  high: null
+  medium: null
+  low: null
+  veryLow: null
+extensions:
+  - fidleg
+regulatoryExtensions:
+  fidleg:
+    indicator_type: null
+    articles: []
+    thresholds: {}
+    monitoring_frequency: null
+    alert_threshold: null
+    action_threshold: null
 ```
 
 ## Description

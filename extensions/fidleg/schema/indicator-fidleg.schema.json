@@ -71,19 +71,30 @@
                     "required": ["pattern", "impactDescription", "patternTriggeredActions"]
                   },
                   "description": "Identified suspicious patterns with their specific FIDLEG implications and triggered actions."
+                },
+                "requiredArticles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "List of relevant FIDLEG articles for this indicator"
+                },
+                "complianceCategory": {
+                  "type": "string",
+                  "enum": ["clientProtection", "marketConduct", "informationDuty", "organizational", "audit"],
+                  "description": "Category of compliance this indicator addresses"
                 }
               },
               "required": [
                 "fidlegTriggerEvent",
                 "triggeredFidlegActions"
-              ],
-              "additionalProperties": false
+              ]
             }
           },
-          "additionalProperties": false
+          "additionalProperties": true
         }
       },
-      "additionalProperties": false
+      "additionalProperties": true
     }
   ]
 }

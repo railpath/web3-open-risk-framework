@@ -2,10 +2,21 @@
 
 ```yaml
 id: I:BID_ASK_SPREAD
-title: Bid-Ask Spread  
-type: Indicator
-version: '1.0'
-lastUpdate: 2026-01-14T00:00:00.000Z
+title: Bid-Ask Spread
+version: "1.0"
+lastUpdate: 2026-01-14
+description: null
+preconditions: []
+methodology: []
+limitations: []
+thresholds:
+  veryHigh: null
+  high: null
+  medium: null
+  low: null
+  veryLow: null
+extensions: []
+regulatoryExtensions: {}
 ```
 
 ## Description

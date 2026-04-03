@@ -3,9 +3,20 @@
 ```yaml
 id: I:UTILIZATION_RATIO
 title: Utilization Ratio
-type: Indicator
 version: "1.0"
 lastUpdate: 2025-05-28
+description: null
+preconditions: []
+methodology: []
+limitations: []
+thresholds:
+  veryHigh: null
+  high: null
+  medium: null
+  low: null
+  veryLow: null
+extensions: []
+regulatoryExtensions: {}
 ```
 
 ##  Description
