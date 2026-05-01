@@ -1,0 +1,22 @@
+{
+  "entity": "risk",
+  "id": "R:AI_AGENT_EXECUTION_OVERTRUST",
+  "title": "Overreliance On AI Agents With Execution Permissions",
+  "description": "Human operators over-trust an AI agent and grant direct execution rights for trading or treasury actions without sufficient approval controls, allowing prompt errors, model drift, or misaligned goals to trigger harmful transactions.",
+  "profile": "core",
+  "category": "HUMAN_ERROR",
+  "scopes": [
+    "APPLICATION",
+    "GOVERNANCE"
+  ],
+  "owners": [
+    "INVESTOR",
+    "PROTOCOL_OPERATOR"
+  ],
+  "indicators": [
+    "I:AI_AGENT_EXECUTION_AUTONOMY_RATIO"
+  ],
+  "measures": [
+    "M:AI_AGENT_EXECUTION_GUARDED_APPROVALS"
+  ]
+}

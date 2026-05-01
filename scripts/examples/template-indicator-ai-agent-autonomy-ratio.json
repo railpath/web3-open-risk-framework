@@ -1,0 +1,7 @@
+{
+  "entity": "indicator",
+  "id": "I:AI_AGENT_EXECUTION_AUTONOMY_RATIO",
+  "title": "AI Agent Execution Autonomy Ratio",
+  "description": "Share of production execution actions initiated by AI agents without a completed human approval checkpoint before submission.",
+  "profile": "core"
+}

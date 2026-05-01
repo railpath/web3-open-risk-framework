@@ -1,0 +1,9 @@
+{
+  "entity": "measure",
+  "id": "M:AI_AGENT_EXECUTION_GUARDED_APPROVALS",
+  "title": "Guarded Approvals For AI Agent Executions",
+  "description": "Require role-based multi-party approval, policy checks, and execution limits before any AI-initiated action can be committed to production systems.",
+  "profile": "core",
+  "impactPotential": "HIGH",
+  "difficulty": "MEDIUM"
+}
