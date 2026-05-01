@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "Validator for Risk/Indicator/Assessment/Measure markdown files with YAML blocks against JSON Schema.",
   "type": "module",
-  "main": "dist/validate-markdown.js",
+  "main": "dist/risk-cli.js",
   "scripts": {
     "build": "tsc",
-    "validate": "npm run build && node dist/validate-markdown.js",
-    "validate-references": "npm run build && node dist/validate-references.js",
-    "validate-all": "npm run validate && npm run validate-references",
+    "validate:schema": "npm run risk-cli -- validate schema",
+    "validate:references": "npm run risk-cli -- validate references",
+    "validate:all": "npm run risk-cli -- validate all",
+    "template": "npm run build && node dist/template-cli.js",
+    "risk-cli": "npm run build && node dist/risk-cli.js",
     "dev": "ts-node --esm src/validate-markdown.ts",
-    "dev-references": "ts-node --esm src/validate-references.ts"
+    "dev-references": "ts-node --esm src/validate-references.ts",
+    "dev-template": "ts-node --esm src/template-cli.ts",
+    "dev-risk-cli": "ts-node --esm src/risk-cli.ts"
   },
   "dependencies": {
     "ajv": "^8.12.0",

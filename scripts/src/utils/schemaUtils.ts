@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 
 /**
- * Same as packages/risk-framework/scripts/validate-markdown.mjs: risk.schema.json uses
+ * Same as packages/risk-catalogue/scripts/validate-markdown.mjs: risk.schema.json uses
  * Draft 2020-12 (Ajv2020); other schemas use Draft-07 (default Ajv).
  * Do not merge into a single Ajv variant.
  */

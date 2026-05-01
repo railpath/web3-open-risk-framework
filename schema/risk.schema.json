@@ -24,7 +24,7 @@
         "HUMAN_ERROR",
         "COMPLIANCE"
       ],
-      "description": "Risk category - see framework/docs/categories.md for definitions"
+      "description": "Risk category - see docs/categories.md for definitions"
     },
     "type": {
       "type": "string",
@@ -44,7 +44,7 @@
         ]
       },
       "minItems": 1,
-      "description": "Scope(s) of action for this risk (see framework/docs/scopes.md)"
+      "description": "Scope(s) of action for this risk (see docs/scopes.md)"
     },
     "owners": {
       "type": "array",

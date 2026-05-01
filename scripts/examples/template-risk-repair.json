@@ -1,0 +1,12 @@
+{
+  "entity": "risk",
+  "id": "R:CATALOGUE_AGENT_TEMPLATE_REPAIR",
+  "title": "Catalogue Agent Template Repair Scenario",
+  "description": "Risk entry intentionally includes missing references so the template repair loop can auto-correct and converge.",
+  "profile": "core",
+  "category": "unknown_category",
+  "scopes": ["APPLICATION"],
+  "owners": ["INVESTOR"],
+  "indicators": ["I:DOES_NOT_EXIST"],
+  "measures": ["M:DOES_NOT_EXIST"]
+}
